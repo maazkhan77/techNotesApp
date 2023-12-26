@@ -26,6 +26,8 @@ app.use(cookieParser()); // parses cookies
 app.use("/", express.static(path.join(__dirname, "/public"))); // telling express where to look for static files
 
 app.use("/", require("./routes/root"));
+app.use("/users", require("./routes/userRoutes"))
+app.use("/notes", require("./routes/noteRoutes"))
 
 //if none of the routes matches we will return a 404 based on api whether it accepts the content (html/json)
 app.all("*", (req, res) => {
